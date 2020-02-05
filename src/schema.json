@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "VicodersCliExampleHandler",
+  "title": "Vicoders CLI example handler",
+  "type": "object",
+  "description": "Example handler",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the pipe.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for the pipe?"
+    }
+  }
+}
