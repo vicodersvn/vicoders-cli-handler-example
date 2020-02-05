@@ -4,6 +4,7 @@
   - [Getting Started](#getting-started)
   - [Steps](#steps)
     - [Add NPM dependency](#add-npm-dependency)
+    - [Install NPM dependency](#install-npm-dependency)
 
 ## Getting Started
 
@@ -24,7 +25,21 @@ Fork this repo to start build new command
  * @param options.version string
  * @param options.overwrite boolean
  */
-addDependency(name, options)
+addDependency(name, options?)
+```
+
+### Install NPM dependency
+
+```javascript
+
+/**
+ * Install NPM dependencies
+ *
+ * @param options NodePackageTaskOptions
+ * @param options.directory
+ * @param options.packageManager ["npm", "yarn"]
+ */
+packageIntall(options?)
 ```
 
 
