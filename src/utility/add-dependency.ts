@@ -19,9 +19,9 @@ export function addDependency(name: string, options?: any): Rule {
       type: options.type ? options.type : NodeDependencyType.Default,
       version: options.version
         ? options.version
-        : exec(`npm view ${name} version`)
+        : `^${exec(`npm view ${name} version`)
             .toString()
-            .replace('\n', ''),
+            .replace('\n', '')}`,
       overwrite: options.override ? options.override : false
     });
     return host;
