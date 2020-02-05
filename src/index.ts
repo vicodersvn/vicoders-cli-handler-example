@@ -1,4 +1,5 @@
 import { addDependency } from './utility/add-dependency';
+import packageIntall from './utility/package-install';
 import { Rule, chain, apply, url, move, mergeWith, applyTemplates, filter, noop } from '@angular-devkit/schematics';
 import { strings } from '@angular-devkit/core';
 
@@ -11,5 +12,5 @@ export default function handler(options: any): Rule {
     }),
     move(options.path)
   ]);
-  return chain([mergeWith(templateSource), addDependency('@vicoders/support')]);
+  return chain([mergeWith(templateSource), addDependency('@vicoders/support'), packageIntall()]);
 }
