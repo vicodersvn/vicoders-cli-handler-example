@@ -13,6 +13,11 @@
         "index": 0
       },
       "x-prompt": "What name would you like to use for the pipe?"
+    },
+    "path": {
+      "type": "string",
+      "description": "The root path of project",
+      "default": "/"
     }
   }
 }
