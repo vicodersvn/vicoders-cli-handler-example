@@ -22,7 +22,7 @@ type PhpPackageManagerProfile = {
 };
 
 const packageManagers: { [name: string]: PhpPackageManagerProfile } = {
-  npm: {
+  composer: {
     quietArgument: '--quiet',
     commands: {
       installAll: 'install',
@@ -38,7 +38,7 @@ export class UnknownPhpPackageManagerException extends BaseException {
 }
 
 export default function(factoryOptions: PhpPackageTaskFactoryOptions = {}): TaskExecutor<PhpPackageTaskOptions> {
-  const packageManagerName = factoryOptions.packageManager || 'npm';
+  const packageManagerName = factoryOptions.packageManager || 'composer';
   const packageManagerProfile = packageManagers[packageManagerName];
   if (!packageManagerProfile) {
     throw new UnknownPhpPackageManagerException(packageManagerName);
