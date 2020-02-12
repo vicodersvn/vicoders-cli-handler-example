@@ -1,7 +1,7 @@
-import { addDependency } from './utility/add-dependency';
 import { Rule, chain, apply, url, move, mergeWith, applyTemplates, filter, noop } from '@angular-devkit/schematics';
 import { strings } from '@angular-devkit/core';
 import phpPackageIntall from './utility/php-package-install';
+import packageIntall from './utility/package-install';
 
 export default function handler(options: any): Rule {
   const templateSource = apply(url('./files'), [
@@ -12,5 +12,5 @@ export default function handler(options: any): Rule {
     }),
     move(options.path)
   ]);
-  return chain([mergeWith(templateSource), addDependency('@vicoders/support'), phpPackageIntall({ packageName: 'league/fractal' })]);
+  return chain([mergeWith(templateSource), packageIntall({ packageName: '@vicoders/support' }), phpPackageIntall({ packageName: 'league/fractal' })]);
 }

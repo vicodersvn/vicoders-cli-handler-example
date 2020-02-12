@@ -5,6 +5,7 @@
   - [Steps](#steps)
     - [Add NPM dependency](#add-npm-dependency)
     - [Install NPM dependency](#install-npm-dependency)
+    - [Install PHP package via composer](#install-php-package-via-composer)
 
 ## Getting Started
 
@@ -31,6 +32,7 @@ addDependency(name, options?)
 ### Install NPM dependency
 
 ```javascript
+import packageIntall from './utility/package-install';
 
 /**
  * Install NPM dependencies
@@ -40,6 +42,21 @@ addDependency(name, options?)
  * @param options.packageManager ["npm", "yarn"]
  */
 packageIntall(options?)
+```
+
+### Install PHP package via composer
+
+```javascript
+import phpPackageIntall from './utility/php-package-install';
+
+/**
+ * Install NPM dependencies
+ *
+ * @param options NodePackageTaskOptions
+ * @param options.directory
+ * @param options.packageManager ["npm", "yarn"]
+ */
+phpPackageIntall(options?)
 ```
 
 
