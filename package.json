@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "A blank schematics",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json -w --copy-files",
     "test": "npm run build && jasmine src/**/*_spec.js"
   },
   "keywords": [

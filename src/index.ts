@@ -1,11 +1,11 @@
 import { Rule, chain, apply, url, move, mergeWith, applyTemplates, filter, noop } from '@angular-devkit/schematics';
 import { strings } from '@angular-devkit/core';
 import * as path from 'path';
+import packageIntall from './utility/package-install';
 import { appendTo } from './utility/append-to-file/append-to-file';
-import { decompress } from './utility/decompress/decompress';
 
 export default function handler(options: any): Rule {
-  const templateSource = apply(url('./files'), [
+  const templateSource = apply(url('./files/slider'), [
     options.skipTests ? filter(path => !path.endsWith('.spec.ts.template')) : noop(),
     applyTemplates({
       ...strings,
@@ -13,9 +13,6 @@ export default function handler(options: any): Rule {
     }),
     move(options.path)
   ]);
-  return chain([
-    mergeWith(templateSource),
-    appendTo(path.resolve(process.cwd(), 'demo', 'index.js'), "import './test.js'"),
-    decompress(path.resolve(process.cwd(), 'test.zip'), path.resolve(process.cwd(), 'demo'))
-  ]);
+  const block_js_file_path = path.resolve(process.cwd(), 'resources', 'assets', 'scripts', 'blocks', 'index.js');
+  return chain([mergeWith(templateSource), appendTo(block_js_file_path, "import './slider'"), packageIntall({ packageName: 'slick-carousel' })]);
 }
