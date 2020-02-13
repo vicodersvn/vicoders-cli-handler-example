@@ -2,6 +2,7 @@ import { Rule, chain, apply, url, move, mergeWith, applyTemplates, filter, noop 
 import { strings } from '@angular-devkit/core';
 import * as path from 'path';
 import { appendTo } from './utility/append-to-file/append-to-file';
+import { decompress } from './utility/decompress/decompress';
 
 export default function handler(options: any): Rule {
   const templateSource = apply(url('./files'), [
@@ -12,5 +13,9 @@ export default function handler(options: any): Rule {
     }),
     move(options.path)
   ]);
-  return chain([mergeWith(templateSource), appendTo(path.resolve(process.cwd(), 'demo', 'index.js'), "import './test.js'")]);
+  return chain([
+    mergeWith(templateSource),
+    appendTo(path.resolve(process.cwd(), 'demo', 'index.js'), "import './test.js'"),
+    decompress(path.resolve(process.cwd(), 'test.zip'), path.resolve(process.cwd(), 'demo'))
+  ]);
 }
