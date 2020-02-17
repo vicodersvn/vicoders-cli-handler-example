@@ -1,7 +1,6 @@
 import { Rule, chain, apply, url, move, mergeWith, applyTemplates, filter, noop } from '@angular-devkit/schematics';
 import { strings } from '@angular-devkit/core';
-import { WordpressService } from './services/Php/Wordpress/WordpressService';
-import { App } from '@nsilly/container';
+import { common } from '@vicoders/cli-support';
 
 export default function handler(options: any): Rule {
   const templateSource = apply(url('./files/slider'), [
@@ -12,5 +11,5 @@ export default function handler(options: any): Rule {
     }),
     move(options.path)
   ]);
-  return chain([mergeWith(templateSource), App.make(WordpressService).declareInServiceProvider('app/Providers/BlockServiceProvider.php', `App\\Blocks\\FancyBoxBlock::class,`)]);
+  return chain([mergeWith(templateSource), common.console.Input('name', 'Enter your block name')]);
 }
