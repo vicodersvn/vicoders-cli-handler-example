@@ -11,5 +11,5 @@ export default function handler(options: any): Rule {
     }),
     move(options.path)
   ]);
-  return chain([mergeWith(templateSource), common.console.Input('name', { message: 'Enter your block name' })]);
+  return chain([mergeWith(templateSource), common.console.exec('ls -al')]);
 }

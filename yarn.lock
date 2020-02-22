@@ -208,32 +208,7 @@
   dependencies:
     "@types/node" "*"
 
-"@vicoders/cli-suppoprt@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@vicoders/cli-suppoprt/-/cli-suppoprt-1.0.0.tgz#8e838b08528c8ddfe5583c98ffad8eefc6a6a0f7"
-  integrity sha512-1wEVaMFDX8Km5Xyjq3kgXBJGTgTG/tZ3W+7O0ZqS8LS91343k3a0JGAwQqwp27tpKu1eHNMsJqRORYEAD0SAhA==
-  dependencies:
-    "@angular-devkit/core" "^9.0.2"
-    "@angular-devkit/schematics" "^9.0.2"
-    "@schematics/angular" "^9.0.2"
-    "@types/colors" "^1.2.1"
-    "@types/decompress" "^4.2.3"
-    "@types/inquirer" "^6.5.0"
-    "@types/jasmine" "^3.3.9"
-    "@types/node" "^8.0.31"
-    "@types/pluralize" "^0.0.29"
-    "@types/shelljs" "^0.8.6"
-    "@vicoders/console" "^2.0.0"
-    colors "^1.4.0"
-    decompress "^4.2.0"
-    inquirer "^7.0.4"
-    jasmine "^3.3.1"
-    ora "^4.0.3"
-    pluralize "^8.0.0"
-    shelljs "^0.8.3"
-    typescript "~3.5.3"
-
-"@vicoders/cli-support@^1.0.0":
+"@vicoders/cli-support@^1.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@vicoders/cli-support/-/cli-support-1.0.0.tgz#9925a18214570027cc4edd2d3b9de71a78c3a910"
   integrity sha512-L3HbWfAR0BmEYev3cbzP5SNUyCfjzY4rW4vnG8rXK5HAw1TvpxDQrEJgVz3uF9Gc9l5soO8vOrqtQqQ/fZEm5w==
