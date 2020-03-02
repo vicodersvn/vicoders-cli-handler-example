@@ -15,6 +15,9 @@ export default function handler(options: any): Rule {
   return chain([
     mergeWith(templateSource),
     common.console.exec('ls -al'),
-    common.ulti.download('https://github.com/vicodersvn/vicoders-cli-handler-example/archive/master.zip', path.resolve(process.cwd(), 'master.zip'))
+    common.ulti.download('https://github.com/vicodersvn/vicoders-cli-handler-example/archive/master.zip', path.resolve(process.cwd(), 'master.zip')),
+    common.console.exec(`mkdir -p ${path.resolve(process.cwd(), 'test')}`),
+    common.ulti.sleep(5000),
+    common.ulti.decompress(path.resolve(process.cwd(), 'master.zip'), path.resolve(process.cwd(), 'test'))
   ]);
 }
